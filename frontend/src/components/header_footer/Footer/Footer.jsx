@@ -5,7 +5,7 @@ import { faFacebook, faInstagram, faYoutube } from '@fortawesome/free-brands-svg
 
 const Footer = () => {
   return (
-    <Navbar fixed="bottom" bg="dark" variant="dark" className="py-3">
+    <Navbar bg="dark" variant="dark" className="py-3">
       <Container>
         <Row>
           <Col className="text-white">
