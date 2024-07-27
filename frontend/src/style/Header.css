@@ -1,0 +1,14 @@
+
+a.nav-link {
+  padding: 15px 20px; 
+  width: 150px; 
+  text-align: center;
+  font-size: 20px; 
+}
+
+a.user.nav-link {
+  background: aqua;
+}
+.navbar-collapse.collapse {
+  justify-content: space-around;
+}
