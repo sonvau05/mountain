@@ -1,7 +1,7 @@
 import React from 'react';
 const Nav = ({Toggle}) => {
     return (
-        <nav className="navbar navbar-expand-sm navbar-dark bg-transparent px-3">
+        <nav className="navbar navbar-expand-sm navbar-white bg-transparent px-3">
             <i className="navbar-brand bi bi-justify-left fs-4" onClick={Toggle}></i>
             <button
                 className="navbar-toggler"

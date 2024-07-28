@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\MountainController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,4 +15,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+Route::prefix("admin")->group(function(){
+    Route::get('/mountain',[MountainController::class,'show']);
+    Route::post('/mountain/addnew',[MountainController::class,'insert']);
+    Route::delete('/mountain/delete/{id}',[MountainController::class,'delete']);
 });
