@@ -60,4 +60,45 @@ class MountainController extends Controller
             ->get();
         return response()->json(['ListMountain' => $ListMountain]);
     }
+
+    public function update($id, Request $request)
+    {
+        $mountain = DB::table('mountain')->where('id', $id)->first();
+
+        $name = $request->input('name');
+        $description = $request->input('description');
+        $latitude = $request->input('latitude');
+        $longitude = $request->input('longitude');
+        $altitude = $request->input('altitude');
+        $country = $request->input('country');
+        $region = $request->input('region');
+
+        DB::table('mountain')
+            ->where('id', $id)
+            ->update([
+                'name' => $name,
+                'description' => $description,
+                'latitude' => $latitude,
+                'longitude' => $longitude,
+                'altitude' => $altitude,
+                'country' => $country,
+                'region' => $region
+            ]);
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = $image->getClientOriginalName();
+            $image->storeAs('public/images', $imageName);
+
+            DB::table('mountain')
+                ->where('id', $id)
+                ->update(['img' => $imageName]);
+        }
+
+        $ListMountain = DB::table('mountain')
+            ->select('id', 'name', 'description', 'latitude', 'longitude', 'altitude', 'country', 'region', 'img')
+            ->get();
+
+        return response()->json(['ListMountain' => $ListMountain]);
+    }
 }

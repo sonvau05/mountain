@@ -13,7 +13,16 @@ const ModalAddNew = ({ show, handleClose,setListMountain }) => {
   const [country, setCountry] = useState("");
   const [region, setRegion] = useState("");
   const [image, setImage] = useState(null);
-
+  const [imagePreview, setImagePreview] = useState("");
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    setImage(file);
+    if (file) {
+      setImagePreview(URL.createObjectURL(file)); 
+    } else {
+      setImagePreview('');
+    }
+  };
   const handleSave = async () => {
     let res = await addMountain(name, description, latitude, longitude, altitude, country, region, image);
     console.log("check ", res);
@@ -72,9 +81,19 @@ const ModalAddNew = ({ show, handleClose,setListMountain }) => {
             </div>
             <div className="form-group">
               <label htmlFor="imageFile">Upload Image</label>
-              <div className="form-group">
-                <input type="file" className="custom-file-input" id="imageFile" onChange={(e) => setImage(e.target.files[0])} />
-              </div>
+              <input
+                type="file"
+                className="form-control"
+                id="imageFile"
+                onChange={handleImageChange}
+              />
+              {imagePreview && (
+                <img
+                  src={imagePreview}
+                  alt="Preview"
+                  style={{ maxWidth: '100%', marginTop: '10px' }}
+                />
+              )}
             </div>
           </form>
         </Modal.Body>

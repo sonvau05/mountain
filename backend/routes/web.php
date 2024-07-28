@@ -20,4 +20,5 @@ Route::prefix("admin")->group(function(){
     Route::get('/mountain',[MountainController::class,'show']);
     Route::post('/mountain/addnew',[MountainController::class,'insert']);
     Route::delete('/mountain/delete/{id}',[MountainController::class,'delete']);
+    Route::post('/mountain/update/{id}',[MountainController::class,'update']);
 });

@@ -25,4 +25,26 @@ const deleteMountain = (id) => {
     return axios.delete(`admin/mountain/delete/${id}`)
 }
 
-export { showMountain, addMountain, deleteMountain };
+
+const updateMountain = (id, name, description, latitude, longitude, altitude, country, region, image) => {
+    let formData = new FormData();
+    formData.append('name', name);
+    formData.append('description', description);
+    formData.append('latitude', latitude);
+    formData.append('longitude', longitude);
+    formData.append('altitude', altitude);
+    formData.append('country', country);
+    formData.append('region', region);
+    if (image) {
+        formData.append('image', image);
+    }
+
+    return axios.post(`/admin/mountain/update/${id}`, formData, {
+        headers: {
+            'Content-Type': 'multipart/form-data',
+        },
+    });
+};
+
+
+export { showMountain, addMountain, deleteMountain, updateMountain };
