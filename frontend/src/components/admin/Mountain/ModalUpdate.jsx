@@ -2,7 +2,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { useEffect, useState } from 'react';
 import { updateMountain,showMountain } from '../../../services/api';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 const ModalUpdate = ({ show, handleClose, dataMountain , setListMountain}) => {
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
@@ -22,7 +22,6 @@ const ModalUpdate = ({ show, handleClose, dataMountain , setListMountain}) => {
             toast.success("Edit Mountain succsess");
             updateMountainList();
         }
-       
     }
     const updateMountainList = async () => {
         let res = await showMountain();

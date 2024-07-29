@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MountainController;
+use App\Http\Controllers\AuthController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,3 +23,4 @@ Route::prefix("admin")->group(function(){
     Route::delete('/mountain/delete/{id}',[MountainController::class,'delete']);
     Route::post('/mountain/update/{id}',[MountainController::class,'update']);
 });
+Route::post('/login', [AuthController::class, 'login']);
