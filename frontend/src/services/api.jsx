@@ -38,7 +38,6 @@ const updateMountain = (id, name, description, latitude, longitude, altitude, co
     if (image) {
         formData.append('image', image);
     }
-
     return axios.post(`/admin/mountain/update/${id}`, formData, {
         headers: {
             'Content-Type': 'multipart/form-data',
@@ -46,5 +45,19 @@ const updateMountain = (id, name, description, latitude, longitude, altitude, co
     });
 };
 
+const Login = (username, password_hash) => {
+    return axios.post('/login', {
+        username,
+        password_hash
+    })
+}
+const Register = (username, password_hash,full_name,email) => {
+    return axios.post('/register', {
+        username,
+        password_hash,
+        full_name,
+        email
+    })
+}
 
-export { showMountain, addMountain, deleteMountain, updateMountain };
+export { showMountain, addMountain, deleteMountain, updateMountain, Login ,Register};

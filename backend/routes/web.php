@@ -24,3 +24,4 @@ Route::prefix("admin")->group(function(){
     Route::post('/mountain/update/{id}',[MountainController::class,'update']);
 });
 Route::post('/login', [AuthController::class, 'login']);
+Route::post('/register', [AuthController::class, 'register']);

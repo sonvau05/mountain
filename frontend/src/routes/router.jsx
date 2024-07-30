@@ -13,6 +13,8 @@ import TableUser from '../components/admin/User/TableUser';
 import TableGroup from '../components/admin/Group/TableGroup';
 import TableMountain from '../components/admin/Mountain/TableMountain';
 import HomeAdmin from '../components/admin/Dashboard/HomeAdmin';
+import LoginForm from '../components/User/Login';
+import RegisterForm from '../components/User/Register';
 
 
 
@@ -33,7 +35,8 @@ const RouterApp = () => {
           </Route>
           <Route path="/blog" element={<Blog />} />
           <Route path="/group" element={<Group />} />
-          <Route path="/login" element={<User />} />
+          <Route path="/login" element={<LoginForm />} />
+          <Route path="/register" element={<RegisterForm />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<Notfound />} />

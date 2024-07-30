@@ -17,5 +17,8 @@ class UserModel extends Authenticatable
     public $fillable = [
         'username',
         'password_hash',
+        'full_name',
+        'email',
+
     ];
 }
