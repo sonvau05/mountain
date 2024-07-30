@@ -25,7 +25,6 @@ const deleteMountain = (id) => {
     return axios.delete(`admin/mountain/delete/${id}`)
 }
 
-
 const updateMountain = (id, name, description, latitude, longitude, altitude, country, region, image) => {
     let formData = new FormData();
     formData.append('name', name);
@@ -49,15 +48,65 @@ const Login = (username, password_hash) => {
     return axios.post('/login', {
         username,
         password_hash
-    })
+    });
 }
-const Register = (username, password_hash,full_name,email) => {
+
+const Register = (username, password_hash, full_name, email) => {
     return axios.post('/register', {
         username,
         password_hash,
         full_name,
         email
-    })
+    });
 }
 
-export { showMountain, addMountain, deleteMountain, updateMountain, Login ,Register};
+// New API functions for user profile
+const getProfile = () => {
+    return axios.get('/user/profile');
+};
+
+const updateProfile = (formData) => {
+    return axios.post('/user/profile/update', formData, {
+        headers: {
+            'Content-Type': 'multipart/form-data',
+        },
+    });
+};
+
+const changePassword = (passwords) => {
+    return axios.post('/user/change-password', passwords);
+};
+
+export { 
+    showMountain, 
+    addMountain, 
+    deleteMountain, 
+    updateMountain, 
+    Login, 
+    Register, 
+    getProfile, 
+    updateProfile, 
+    changePassword 
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

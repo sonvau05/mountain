@@ -8,13 +8,13 @@ import Contact from '../components/contact/Contact';
 import Group from '../components/group/Group';
 import Mountain from '../components/mountain/Mountain';
 import Blog from '../components/Blog/Blog';
-import User from '../components/User/User';
 import TableUser from '../components/admin/User/TableUser';
 import TableGroup from '../components/admin/Group/TableGroup';
 import TableMountain from '../components/admin/Mountain/TableMountain';
 import HomeAdmin from '../components/admin/Dashboard/HomeAdmin';
 import LoginForm from '../components/User/Login';
 import RegisterForm from '../components/User/Register';
+import Profile from '../components/Profile/Profile';
 
 
 
@@ -39,6 +39,7 @@ const RouterApp = () => {
           <Route path="/register" element={<RegisterForm />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="*" element={<Notfound />} />
         </Routes>
 
